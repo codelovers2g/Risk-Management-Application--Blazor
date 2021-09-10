@@ -1,0 +1,13 @@
+We have created an Api Controller for fetching the data from netsuite rest services Api to get the data of Clients.
+For eg. https://YourAccountId.suitetalk.api.netsuite.com/services/rest/
+
+
+- SetHeader(string QueryString) : This method is used to set the OAuth Authentication Header. OAuthBase class is also defined in project itself to 
+get the Authentication signature in 'HMACSHA256' signature method.
+
+- FindByCompanyName(string CompanyName) : This method is for finding the company by name. NetSuiteVm Class is created to convert the json Response to object format (to Map the fields into object). 
+{"record/v1/customer?q=companyName START_WITH " + CompanyName} url returns the Id of companies whose name starts with the mentioned string.
+
+- FindCompanyNameById(List<string> ListOfId) : List of Ids from previous method is supplied to this method to get the name and other details about the companies.
+
+- SetCompanyAddress(int CompanyId) : Company Address is not in correct format to map the Fields in our Database table. Thats why this method called to get that particular format of data to match it in Database. 
