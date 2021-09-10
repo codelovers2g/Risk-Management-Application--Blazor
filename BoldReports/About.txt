@@ -1,0 +1,2 @@
+Bold Reports is used to open rdl files inside oue application. We are fetching the file from Azure Blob and then displaying it in the application.
+It accepts file as memory stream, Reads the structure of file and then display the data.
